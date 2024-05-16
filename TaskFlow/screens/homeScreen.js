@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import Task from "../components/task";
 
-export default function App() {
+const HomeScreen = () => {
   const [task, setTask] = useState("");
   const [taskItems, setTaskItems] = useState([]);
 
@@ -116,3 +116,5 @@ const styles = StyleSheet.create({
   },
   addText: {},
 });
+
+export default HomeScreen;
