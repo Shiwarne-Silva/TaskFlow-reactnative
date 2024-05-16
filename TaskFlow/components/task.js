@@ -1,14 +1,28 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 
-const Task = (props) => {
+const Task = ({ text, onDelete }) => {
+  const handleDelete = () => {
+    Alert.alert(
+      "Delete Task",
+      "Are you sure you want to delete this task?",
+      [
+        { text: "Cancel", style: "cancel" },
+        { text: "Delete", onPress: onDelete, style: "destructive" }
+      ],
+      { cancelable: true }
+    );
+  };
+
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
         <View style={styles.square}></View>
-        <Text style={styles.itemText}>{props.text}</Text>
+        <Text style={styles.itemText}>{text}</Text>
       </View>
-      <View style={styles.circular}></View>
+      <TouchableOpacity onPress={handleDelete}>
+        <View style={styles.circular}></View>
+      </TouchableOpacity>
     </View>
   );
 };
