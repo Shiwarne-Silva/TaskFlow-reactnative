@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const StartupScreen = ({ navigation }) => {
   const handleGetStarted = () => {
-    console.log('Get Started button pressed');
+    console.log('Login or Signup button pressed!');
     navigation.navigate('Home');
   };
 
@@ -15,9 +15,14 @@ const StartupScreen = ({ navigation }) => {
       <Text style={styles.subtitle2}>
         Become focused, organized, and calm with TaskFlow. The world’s #1 to-do list app.
       </Text>
+      <View style={styles.buttonContainer}>
       <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
-        <Text style={styles.buttonText}>Get Started</Text>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
+        <Text style={styles.buttonText}>Signup</Text>
+      </TouchableOpacity>
+    </View>
     </View>
   );
 };
@@ -55,18 +60,24 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: 'center',
   },
-  button: {
-    backgroundColor: '#B9EDDD',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderWidth: 2,
-    borderRadius: 25,
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around', 
+    width: '80%', 
     marginTop: 20,
   },
+  button: {
+    backgroundColor: '#FF5F1F',
+    paddingVertical: 15,
+    width: '45%',  // Give each button 45% width of the container
+    borderWidth: 2,
+    borderRadius: 25,
+    alignItems: 'center', // Center text horizontally within the button
+  },
   buttonText: {
-    color: '#577D86',
+    color: '#000',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '700',
     textAlign: 'center',
   },
 });
