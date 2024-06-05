@@ -16,13 +16,14 @@ const StartupScreen = ({ navigation }) => {
         Become focused, organized, and calm with TaskFlow. The world’s #1 to-do list app.
       </Text>
       <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
-        <Text style={styles.buttonText}>Signup</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Signup')}>
+          <Text style={styles.buttonText}>Signup</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
